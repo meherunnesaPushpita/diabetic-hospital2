@@ -1,1 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetic Hospital Website</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body data-theme="cmyk" class="min-h-screen">
+    <div class="navbar bg-base-100">
+        <div class="flex-1">
+            <a href="../index.html" class="btn btn-ghost text-xl">Diabetic</a>
+        </div>
+        <div class="flex-none">
+            <ul class="menu menu-horizontal px-1 gap-2">
+                <li class="bg-gray-50 rounded"><a href="../index.html">Home</a></li>
+                <li class="bg-gray-50 rounded"><a href="./hospitals.html">Hospitals</a></li>
+                <li class="bg-gray-50 rounded"><a href="./doctors.html">Doctors</a></li>
+                <li class="bg-gray-50 rounded"><a href="./pharmacies.html">Pharmacies</a></li>
+                <li class="bg-gray-50 rounded"><a href="./laboratories.html">Laboratories</a></li>
+                <li class="bg-gray-50 rounded"><a href="./patients.html">Patients</a></li>
+                <li class="bg-gray-50 rounded"><a href="./dietitians.html">Dietitians</a></li>
+                <li class="bg-gray-50 rounded"><a href="./healthparameters.html">Health Parameters</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="min-h-[80vh] flex gap-2">
+
+        <div class="drawer w-52 p-2 z-10">
+            <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+            <div class="drawer-content text-nowrap flex justify-center ">
+                <!-- Page content here -->
+                <label for="my-drawer" class="btn mt-5 drawer-button">Actions</label>
+            </div>
+            <div class="drawer-side ">
+                <label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+                <ul class="menu p-4 w-80 min-h-full bg-base-200 text-base-content justify-center ">
+                    <!-- Sidebar content here -->
+                    <li><button onclick="showAdd()" class="btn">Add</button></li>
+                    <li><button onclick="showDashboard()" class="btn">Dashboard</button></li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="content w-full">
+            <div id="add-display" class="">
+                <div class="flex justify-center items-center p-5 bg-gray-100">
+                    <div class="card w-[500px] bg-white shadow-lg p-4">
+                        <h2 class="card-title text-center mb-4">Add Hospital</h2>
+                        <form id="hospitalForm" class="space-y-2">
+                            <div class="form-control flex items-center flex-row">
+                                <label class="label w-32" for="hospitalID">
+                                    <span class="label-text">Hospital ID</span>
+                                </label>
+                                <input type="text" id="hospitalID" class="input input-bordered w-full"
+                                    placeholder="Enter Hospital ID" required>
+                            </div>
+                            <div class="form-control flex items-center flex-row">
+                                <label class="label w-32" for="name">
+                                    <span class="label-text">Name</span>
+                                </label>
+                                <input type="text" id="name" class="input input-bordered w-full"
+                                    placeholder="Enter Hospital Name" required>
+                            </div>
+                            <div class="form-control flex items-center flex-row">
+                                <label class="label w-32" for="location">
+                                    <span class="label-text">Location</span>
+                                </label>
+                                <input type="text" id="location" class="input input-bordered w-full"
+                                    placeholder="Enter Location" required>
+                            </div>
+                            <div class="form-control flex items-center flex-row">
+                                <label class="label w-32" for="contactInfo">
+                                    <span class="label-text">Contact Info</span>
+                                </label>
+                                <input type="text" id="contactInfo" class="input input-bordered w-full"
+                                    placeholder="Enter Contact Info" required>
+                            </div>
+                            <div class="form-control mt-4">
+                                <button type="submit" class="btn w-full">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div id="dashboard-display" class="hidden">
+                <div class="overflow-x-auto">
+                    <table class="table">
+                        <!-- head -->
+                        <thead>
+                            <tr class="hover">
+                                <th class="px-4 py-2"></th>
+                                <th class="px-4 py-2">Hospital ID</th>
+                                <th class="px-4 py-2">Name</th>
+                                <th class="px-4 py-2">Location</th>
+                                <th class="px-4 py-2">Contact Info</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- row 1 -->
+                            <tr class="hover">
+                                <td>1</td>
+                                <td>H001</td>
+                                <td>General Hospital</td>
+                                <td>123 Main St, Springfield</td>
+                                <td>(123) 456-7890</td>
+                            </tr>
+                            <!-- row 2 -->
+                            <tr class="hover">
+                                <td>2</td>
+                                <td>H002</td>
+                                <td>City Hospital</td>
+                                <td>456 Elm St, Shelbyville</td>
+                                <td>(234) 567-8901</td>
+                            </tr>
+                            <!-- row 3 -->
+                            <tr class="hover">
+                                <td>3</td>
+                                <td>H003</td>
+                                <td>County Hospital</td>
+                                <td>789 Oak St, Capital City</td>
+                                <td>(345) 678-9012</td>
+                            </tr>
+                            <!-- row 4 -->
+                            <tr class="hover">
+                                <td>4</td>
+                                <td>H004</td>
+                                <td>Regional Hospital</td>
+                                <td>101 Pine St, Ogdenville</td>
+                                <td>(456) 789-0123</td>
+                            </tr>
+                            <!-- row 5 -->
+                            <tr class="hover">
+                                <td>5</td>
+                                <td>H005</td>
+                                <td>Metro Hospital</td>
+                                <td>202 Birch St, North Haverbrook</td>
+                                <td>(567) 890-1234</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- action script -->
+    <script>
+        const showAdd = () => {
+            const addDisplay = document.getElementById("add-display");
+            const dashboardDisplay = document.getElementById("dashboard-display");
+
+            // Show the add-display and hide the dashboard-display
+            addDisplay.classList.remove("hidden");
+            dashboardDisplay.classList.add("hidden");
+        }
+
+        const showDashboard = () => {
+            const addDisplay = document.getElementById("add-display");
+            const dashboardDisplay = document.getElementById("dashboard-display");
+
+            // Show the dashboard-display and hide the add-display
+            dashboardDisplay.classList.remove("hidden");
+            addDisplay.classList.add("hidden");
+        }
+    </script>
+
+    <!-- add Entity script -->
+    <script>
+        document.getElementById('hospitalForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const hospitalID = document.getElementById('hospitalID').value;
+            const name = document.getElementById('name').value;
+            const location = document.getElementById('location').value;
+            const contactInfo = document.getElementById('contactInfo').value;
+
+            console.log({
+                hospitalID,
+                name,
+                location,
+                contactInfo
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>
