@@ -1,1 +1,211 @@
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetic Hospital Website</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body data-theme="cmyk" class="min-h-screen">
+    <div class="navbar bg-base-100">
+        <div class="flex-1">
+            <a class="btn btn-ghost text-xl">Diabetic</a>
+        </div>
+        <div class="flex-none">
+            <ul class="menu menu-horizontal px-1 gap-2">
+                <li class="bg-gray-50 rounded"><a href="../index.html">Home</a></li>
+                <li class="bg-gray-50 rounded"><a href="./patients.html">Patients</a></li>
+                <li class="bg-gray-50 rounded"><a href="./healthparameters.html">Health Parameters</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="min-h-[80vh] flex gap-2">
+
+        <div class="drawer w-52 p-2 z-10">
+            <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+            <div class="drawer-content text-nowrap flex justify-center ">
+                <!-- Page content here -->
+                <label for="my-drawer" class="btn mt-5 drawer-button">Actions</label>
+            </div>
+            <div class="drawer-side ">
+                <label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+                <ul class="menu p-4 w-80 min-h-full bg-base-200 text-base-content justify-center ">
+                    <!-- Sidebar content here -->
+                    <li><button onclick="showAdd()" class="btn">Add</button></li>
+                    <li></li><button onclick="showDashboard()" class="btn">Dashboard</button></li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="content w-full">
+            <div id="add-display" class="">
+                <div class="flex justify-center items-center p-5 bg-gray-100">
+                    <div class="card w-[500px] bg-white shadow-lg p-4">
+                        <h2 class="card-title text-center mb-4">Add Dietitian</h2>
+                        <form id="dietitianForm" class="space-y-2">
+                            <div class="form-control flex items-center flex-row">
+                                <label class="label w-32" for="name">
+                                    <span class="label-text">Name</span>
+                                </label>
+                                <input type="text" id="name" class="input input-bordered w-full" placeholder="John Doe"
+                                    required>
+                            </div>
+                            <div class="form-control flex items-center flex-row">
+                                <label class="label w-32" for="dietitianID">
+                                    <span class="label-text">DietitianID</span>
+                                </label>
+                                <input type="text" id="dietitianID" class="input input-bordered w-full"
+                                    placeholder="diet1122" required>
+                            </div>
+                            <div class="form-control flex items-center flex-row">
+                                <label class="label w-32" for="phone">
+                                    <span class="label-text">Phone</span>
+                                </label>
+                                <input type="text" id="phone" class="input input-bordered w-full"
+                                    placeholder="(123) 456-7890" required>
+                            </div>
+                            <div class="form-control flex items-center flex-row">
+                                <label class="label w-32" for="email">
+                                    <span class="label-text">Email</span>
+                                </label>
+                                <input type="email" id="email" class="input input-bordered w-full"
+                                    placeholder="johndoe@example.com" required>
+                            </div>
+                            <div class="form-control flex items-center flex-row">
+                                <label class="label w-32" for="address">
+                                    <span class="label-text">Address</span>
+                                </label>
+                                <input type="text" id="address" class="input input-bordered w-full"
+                                    placeholder="123 Main St, Springfield" required>
+                            </div>
+                            <div class="form-control flex items-center flex-row">
+                                <label class="label w-32" for="dietPlan">
+                                    <span class="label-text">Diet Plan</span>
+                                </label>
+                                <textarea type="text" id="dietPlan" class="textarea textarea-bordered w-full"
+                                    placeholder="Greek Yogurt Parfait, Apple with Almond Butter" required></textarea>
+                            </div>
+                            <div class="form-control flex items-center flex-row">
+                                <label class="label w-32" for="username">
+                                    <span class="label-text">Username</span>
+                                </label>
+                                <input type="text" id="username" class="input input-bordered w-full"
+                                    placeholder="johndoe" required>
+                            </div>
+                            <div class="form-control mt-4">
+                                <button type="submit" class="btn  w-full">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div id="dashboard-display" class="hidden">
+                <div class="overflow-x-auto">
+                    <table class="table">
+                        <!-- head -->
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Name</th>
+                                <th>Dietitian ID</th>
+                                <th>Phone</th>
+                                <th>Email</th>
+                                <th>Address</th>
+                                <th>DietPlan</th>
+                                <th>Username</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- row 1 -->
+                            <tr class="hover">
+                                <td>1</td>
+                                <td> John Doe</td>
+                                <td>johndoe@example.com</td>
+                                <td>(123) 456-7890</td>
+                                <td>johndoe@example.com</td>
+                                <td>123 Main St, Springfield</td>
+                                <td>Cardiology</td>
+                                <td>johndoe</td>
+                            </tr>
+                            <tr class="hover">
+                                <td>2</td>
+                                <td> Jane Smith</td>
+                                <td>janesmith@example.com</td>
+                                <td>(987) 654-3210</td>
+                                <td>janesmith@example.com</td>
+                                <td>456 Elm St, Metropolis</td>
+                                <td>Neurology</td>
+                                <td>janesmith</td>
+                            </tr>
+                            <tr class="hover">
+                                <td>3</td>
+                                <td> Michael Brown</td>
+                                <td>michaelbrown@example.com</td>
+                                <td>(555) 123-4567</td>
+                                <td>michaelbrown@example.com</td>
+                                <td>789 Oak St, Gotham</td>
+                                <td>Pediatrics</td>
+                                <td>michaelbrown</td>
+                            </tr>
+                            <tr class="hover">
+                                <td>4</td>
+                                <td> Emily White</td>
+                                <td>emilywhite@example.com</td>
+                                <td>(111) 222-3333</td>
+                                <td>emilywhite@example.com</td>
+                                <td>321 Pine St, Star City</td>
+                                <td>Dermatology</td>
+                                <td>emilywhite</td>
+                            </tr>
+                            <tr class="hover">
+                                <td>5</td>
+                                <td> William Green</td>
+                                <td>williamgreen@example.com</td>
+                                <td>(444) 555-6666</td>
+                                <td>williamgreen@example.com</td>
+                                <td>654 Cedar St, Central City</td>
+                                <td>Oncology</td>
+                                <td>williamgreen</td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- action script -->
+    <script>
+        const showAdd = () => {
+            const addDisplay = document.getElementById("add-display");
+            const dashboardDisplay = document.getElementById("dashboard-display");
+
+            // Show the add-display and hide the dashboard-display
+            addDisplay.classList.remove("hidden");
+            dashboardDisplay.classList.add("hidden");
+        }
+
+        const showDashboard = () => {
+            const addDisplay = document.getElementById("add-display");
+            const dashboardDisplay = document.getElementById("dashboard-display");
+
+            // Show the dashboard-display and hide the add-display
+            dashboardDisplay.classList.remove("hidden");
+            addDisplay.classList.add("hidden");
+        }
+    </script>
+
+    <!-- add Entity script -->
+
+
+
+</body>
+
+</html>
