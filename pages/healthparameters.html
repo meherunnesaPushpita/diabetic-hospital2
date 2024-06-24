@@ -1,1 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetic Hospital Website</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body data-theme="cmyk" class="min-h-screen">
+    <div class="navbar bg-base-100">
+        <div class="flex-1">
+            <a class="btn btn-ghost text-xl">Diabetic</a>
+        </div>
+        <div class="flex-none">
+            <ul class="menu menu-horizontal px-1 gap-2">
+                <li class="bg-gray-50 rounded"><a href="../index.html">Home</a></li>
+                <li class="bg-gray-50 rounded"><a href="./hospitals.html">Hospitals</a></li>
+                <li class="bg-gray-50 rounded"><a href="./doctors.html">Doctors</a></li>
+                <li class="bg-gray-50 rounded"><a href="./pharmacies.html">Pharmacies</a></li>
+                <li class="bg-gray-50 rounded"><a href="./laboratories.html">Laboratories</a></li>
+                <li class="bg-gray-50 rounded"><a href="./patients.html">Patients</a></li>
+                <li class="bg-gray-50 rounded"><a href="./dietitians.html">Dietitians</a></li>
+                <li class="bg-gray-50 rounded"><a href="./healthparameters.html">Health Parameters</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="min-h-[80vh] flex gap-2">
+
+        <div class="drawer w-52 p-2 z-10">
+            <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+            <div class="drawer-content text-nowrap flex justify-center ">
+                <!-- Page content here -->
+                <label for="my-drawer" class="btn mt-5 drawer-button">Actions</label>
+            </div>
+            <div class="drawer-side ">
+                <label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+                <ul class="menu p-4 w-80 min-h-full bg-base-200 text-base-content justify-center ">
+                    <!-- Sidebar content here -->
+                    <li><button onclick="showAdd()" class="btn">Add</button></li>
+                    <li></li><button onclick="showDashboard()" class="btn">Dashboard</button></li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="content w-full">
+            <div id="add-display" class="">
+                <div class="flex justify-center items-center p-5 bg-gray-100">
+                    <div class="card w-[500px] bg-white shadow-lg p-4">
+                        <h2 class="card-title text-center mb-4">Add Health Parameter</h2>
+                        <form id="healthParameterForm" class="space-y-2">
+                            <div class="form-control flex items-center flex-row">
+                                <label class="label w-32" for="healthParameterId">
+                                    <span class="label-text">Health Parameter ID</span>
+                                </label>
+                                <input type="text" id="healthParameterId" class="input input-bordered w-full"
+                                    placeholder="Enter Health Parameter ID" required>
+                            </div>
+                            <div class="form-control flex items-center flex-row">
+                                <label class="label w-32" for="glucoseLevel">
+                                    <span class="label-text">Glucose Level</span>
+                                </label>
+                                <input type="text" id="glucoseLevel" class="input input-bordered w-full"
+                                    placeholder="Enter Glucose Level" required>
+                            </div>
+                            <div class="form-control flex items-center flex-row">
+                                <label class="label w-32" for="cholesterol">
+                                    <span class="label-text">Cholesterol</span>
+                                </label>
+                                <input type="text" id="cholesterol" class="input input-bordered w-full"
+                                    placeholder="Enter Cholesterol Level" required>
+                            </div>
+                            <div class="form-control flex items-center flex-row">
+                                <label class="label w-32" for="oxygenLevel">
+                                    <span class="label-text">Oxygen Level</span>
+                                </label>
+                                <input type="text" id="oxygenLevel" class="input input-bordered w-full"
+                                    placeholder="Enter Oxygen Level" required>
+                            </div>
+                            <div class="form-control mt-4">
+                                <button type="submit" class="btn w-full">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div id="dashboard-display" class="hidden">
+                <div class="overflow-x-auto">
+                    <table class="table">
+                        <!-- head -->
+                        <thead>
+                            <tr class="hover">
+                                <th></th>
+                                <th>Unique ID</th>
+                                <th>Glucose Level</th>
+                                <th>Cholesterol</th>
+                                <th>Oxygen Level</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="hover">
+                                <td>1</td>
+                                <td>HP001</td>
+                                <td>90 mg/dL</td>
+                                <td>180 mg/dL</td>
+                                <td>98%</td>
+                            </tr>
+                            <!-- row 2 -->
+                            <tr class="hover">
+                                <td>2</td>
+                                <td>HP002</td>
+                                <td>110 mg/dL</td>
+                                <td>200 mg/dL</td>
+                                <td>95%</td>
+                            </tr>
+                            <!-- row 3 -->
+                            <tr class="hover">
+                                <td>3</td>
+                                <td>HP003</td>
+                                <td>85 mg/dL</td>
+                                <td>170 mg/dL</td>
+                                <td>97%</td>
+                            </tr>
+                            <!-- row 4 -->
+                            <tr class="hover">
+                                <td>4</td>
+                                <td>HP004</td>
+                                <td>95 mg/dL</td>
+                                <td>160 mg/dL</td>
+                                <td>96%</td>
+                            </tr>
+                            <!-- row 5 -->
+                            <tr class="hover">
+                                <td>5</td>
+                                <td>HP005</td>
+                                <td>100 mg/dL</td>
+                                <td>190 mg/dL</td>
+                                <td>94%</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- action script -->
+    <script>
+        const showAdd = () => {
+            const addDisplay = document.getElementById("add-display");
+            const dashboardDisplay = document.getElementById("dashboard-display");
+
+            // Show the add-display and hide the dashboard-display
+            addDisplay.classList.remove("hidden");
+            dashboardDisplay.classList.add("hidden");
+        }
+
+        const showDashboard = () => {
+            const addDisplay = document.getElementById("add-display");
+            const dashboardDisplay = document.getElementById("dashboard-display");
+
+            // Show the dashboard-display and hide the add-display
+            dashboardDisplay.classList.remove("hidden");
+            addDisplay.classList.add("hidden");
+        }
+    </script>
+
+    <!-- add Entity script -->
+
+
+
+</body>
+
+</html>
